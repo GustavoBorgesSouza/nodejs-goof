@@ -1,18 +1,9 @@
 name: fiap-github-actions
 run-name: ${{ github.actor }} is learning GitHub Actions
-on: [push]
+on: [push, workflow_dispatch]
 jobs:
-  
-  info:
-    runs-on: ubuntu-latest
-    
-    steps:
-      - run: ls
-      - run: uname -a
-      - run: id
-      - run: env
 
-  security:
+  snyk:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
