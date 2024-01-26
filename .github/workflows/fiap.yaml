@@ -17,10 +17,10 @@ jobs:
           command: monitor
 
   # analise dinamica / precisa estar publicada
-  zap_scan:
+  zap:
     runs-on: ubuntu-latest
     steps:
       - name: ZAP Scan
-      uses: zaproxy/action-baseline@v0.11.0
-      with:
-      target: 'https://juice-shop.herokuapp.com'
+        uses: zaproxy/action-baseline@v0.11.0
+        with:
+          target: 'https://juice-shop.herokuapp.com'
