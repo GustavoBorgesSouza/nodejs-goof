@@ -4,6 +4,7 @@ run-name: Meetup Fiap
 on: [push, workflow_dispatch]
 jobs:
 
+  # analise de composição de software
   snyk:
     runs-on: ubuntu-latest
     steps:
@@ -14,3 +15,12 @@ jobs:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
           command: monitor
+
+  # analise dinamica / precisa estar publicada
+  zap_scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: ZAP Scan
+        uses: zaproxy/action-baseline@v0.11.0
+      with:
+        target: 'https://juice-shop.herokuapp.com'
